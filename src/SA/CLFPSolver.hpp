@@ -17,13 +17,21 @@ using std::cin;
 
 class CLFPSolver {
   int numOfFacility, numOfCustomer, solutionCost, totalCost;
+  // 每个设备的容量
   int capacityOfEachFacility[MAX_NUMOFFACILITY];
+  // 每个设备的开放开销
   int openingCostOfEachFacility[MAX_NUMOFFACILITY];
+  // 每个顾客的需求
   int demandOfCustomer[MAX_CUSTOMER];
+  // 分配顾客的开销
   int assignmentCost[MAX_CUSTOMER * MAX_NUMOFFACILITY];
+  // 顾客的分配表
   int customerAssignedTable[MAX_CUSTOMER];
+  // 设备当前被使用的容量
   int actualCapacity[MAX_NUMOFFACILITY];
+  // 分配的结果，表示当前接受的解
   int assignSolution[MAX_CUSTOMER];
+  // 设备是否开放
   int openingSolution[MAX_NUMOFFACILITY];
 public:
   CLFPSolver() {
@@ -31,7 +39,6 @@ public:
     memset(this, 0, sizeof(CLFPSolver));
   }
   int loadData(const char *filename) {
-    memset(this, 0, sizeof(CLFPSolver));
     FILE *file = freopen(filename, "r", stdin);
     if (file == 0) {
       return 1;
@@ -156,7 +163,7 @@ public:
     solutionCost = totalCost;
   }
 
-  int SASolution() {
+  void SASolution() {
     while (!solutionGenerator());
     calculationCost();
     for (int i = 0; i < numOfCustomer; ++i) {

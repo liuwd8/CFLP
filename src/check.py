@@ -1,7 +1,7 @@
 import numpy as np
 import re
 
-checkFile = "SAout.txt"
+checkFile = "GA/out.txt"
 filePath = "../instances/"
 
 class CLFPChecker:
@@ -86,7 +86,7 @@ def main():
             actualCapacity=np.array(actualCapacity)
             actualCapacity[actualCapacity>0]=1
             assert (expectActualCapacity == actualCapacity).all()
-            assert totalCost == expectValue
+            assert totalCost == expectValue, f"{expectValue} {totalCost} {filename}"
             assert (expectActualCapacity <= solver.getCapacity()).all()
 
 if __name__ == "__main__":
