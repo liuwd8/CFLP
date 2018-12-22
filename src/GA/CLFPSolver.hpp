@@ -17,7 +17,9 @@ using std::ios;
 using std::cin;
 
 struct Individual {
+  // 顾客的分配表
   int assignTable[MAX_CUSTOMER];
+  // 设备当前被使用的容量
   int capacityTable[MAX_NUMOFFACILITY];
   int totalCost;
 };
@@ -32,14 +34,7 @@ class CLFPSolver {
   int demandOfCustomer[MAX_CUSTOMER];
   // 分配顾客的开销
   int assignmentCost[MAX_CUSTOMER * MAX_NUMOFFACILITY];
-  // 顾客的分配表
-  int customerAssignedTable[MAX_CUSTOMER];
-  // 设备当前被使用的容量
-  int actualCapacity[MAX_NUMOFFACILITY];
-  // 分配的结果，表示当前接受的解
-  int assignSolution[MAX_CUSTOMER];
-  // 设备是否开放
-  int openingSolution[MAX_NUMOFFACILITY];
+  // 种群
   Individual population[MAX_INDIVIDUAL_NUM];
 public:
   CLFPSolver() {
@@ -59,7 +54,6 @@ public:
     }
     for (int i = 0; i < numOfFacility; ++i) {
       cin >> capacityOfEachFacility[i] >> openingCostOfEachFacility[i];
-      actualCapacity[i] = 0;
     }
     for (int i = 0; i < numOfCustomer; ++i) {
       cin >> demandOfCustomer[i];
