@@ -1,8 +1,9 @@
 import numpy as np
 import re
 
-filename = "out.txt"
+checkFile = "SAout.txt"
 filePath = "../instances/"
+
 class CLFPChecker:
     def __init__(self):
         self.numOfFacility, self.numOfCustomer = 0, 0
@@ -68,7 +69,7 @@ class CLFPChecker:
 
 def main():
     count = 0
-    with open("out.txt", encoding="UTF-16 LE") as file:
+    with open(checkFile, encoding="UTF-16 LE") as file:
         text = re.split(r'[^a-zA-Z0-9]+', file.read().strip())[1:]
         k = len(text)
         while count < k:

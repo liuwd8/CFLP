@@ -1,14 +1,16 @@
 # Capacitated Facility Location Problem
-## 使用方法
+## SA 算法
+### 使用方法
 使用`g++`编译`src/main.cpp`,需指定`-std=c++11`
-## 运行结果
-运行结果存储在`src/out.txt`中
-## 验证原理
-读取输出的 `out.txt` 文件中的 `customer assigned table` 生成 `Facility open table` 和 `Total Cost`, 验证是否和输出文件中的结果相同, 验证是否超出设备容量
-## 数据、数据验证及结果
+### 运行结果
+运行结果存储在`src/SAout.txt`中
+### 验证原理
+读取输出的 `SAout.txt` 文件中的 `customer assigned table` 生成 `Facility open table` 和 `Total Cost`, 验证是否和输出文件中的结果相同, 验证是否超出设备容量
+使用`check.py`时需要改脚本中的`checkFile`为`SAout.txt`
+### 数据、数据验证及结果
 测试数据位于`instances/`
 以下结果使用`src/check.py`验证无错误
-### 结果
+#### 结果
 | Problem | Total Cost | Facility open table | customer assigned table | Spend Time |
 | :---: | :---: | :---: | :---: | :---: |
 | p1 | 9107 | [ 1, 1, 1, 1, 1, 1, 0, 0, 1, 1] | [ 8, 2, 1, 5, 3, 0, 2, 4, 4, 1, 9, 0, 3, 2, 8, 3, 4, 0, 9, 4, 3, 8, 9, 4, 2, 5, 1, 5, 0, 5, 2, 5, 0, 3, 9, 4, 4, 3, 0, 4, 1, 8, 1, 5, 4, 0, 4, 0, 4, 3] | 145ms |
